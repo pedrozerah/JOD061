@@ -1,0 +1,162 @@
+using System;
+
+using System.Net;
+
+using System.Net.Sockets;
+
+using System.Text;
+
+
+
+namespace Cliente
+
+{
+
+    class Program
+
+    {
+
+        const int porta = 7000;
+
+        const string ip = "127.0.0.1";
+
+
+
+        static void Main(string[] args)
+
+        {
+
+            TcpClient cliente = new TcpClient();
+
+            Console.Write("Conectando ao servidor... ");
+
+            try
+
+            {
+
+                cliente.Connect(ip, porta);
+
+                Console.WriteLine("OK!");
+
+            }
+
+            catch (Exception)
+
+            {
+
+                Console.WriteLine("Falhou!");
+
+                return;
+
+            }
+
+
+
+            byte[] bytes = new byte[1024];
+
+            NetworkStream stream = cliente.GetStream();
+
+
+
+            Console.WriteLine("Envie uma mensagem. Para sair, pressione ENTER.");
+
+            Console.Write("> ");
+
+            string msg = Console.ReadLine();
+
+
+
+            while (msg.Length > 0)
+
+            {
+
+                bytes = Encoding.ASCII.GetBytes(msg);
+
+                stream.Write(bytes, 0, bytes.Length);
+
+
+
+                Console.Write("> ");
+
+                msg = Console.ReadLine();
+
+            }
+
+
+
+            stream.Close();
+
+            Console.WriteLine("Desconectado!");
+
+            cliente.Close();
+
+        }
+
+    }
+
+}
+
+----------------------------------------
+
+using System;
+
+using System.Net;
+
+using System.Net.Sockets;
+
+
+namespace Servidor
+
+{
+
+    class Program
+
+    {
+
+        const int porta = 7000;
+
+
+
+        static void Main(string[] args)
+
+        {
+
+            TcpListener servidor = new TcpListener(IPAddress.Any,porta);
+
+            try{
+
+
+
+            
+
+            Console.WriteLine("Servidor no ar !");
+
+            servidor.Start();
+
+            }catch(Exception){
+
+                Console.WriteLine("Deu ruim! Não subiu o servidor");
+
+            }
+
+            while(true){
+
+                TcpClient client = servidor.AcceptTcpClient();  
+
+                Console.WriteLine("Conexão estabelecida!");
+
+
+
+
+
+                client.Close();
+
+                Console.WriteLine("Conexão encerrada!");
+
+            }
+
+        }
+
+    }
+
+}
