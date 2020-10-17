@@ -1,0 +1,13 @@
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/bin/Debug/netcoreapp3.1/Servidor
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/bin/Debug/netcoreapp3.1/Servidor.deps.json
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/bin/Debug/netcoreapp3.1/Servidor.runtimeconfig.json
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/bin/Debug/netcoreapp3.1/Servidor.runtimeconfig.dev.json
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/bin/Debug/netcoreapp3.1/Servidor.dll
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/bin/Debug/netcoreapp3.1/Servidor.pdb
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/obj/Debug/netcoreapp3.1/Servidor.csprojAssemblyReference.cache
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/obj/Debug/netcoreapp3.1/Servidor.AssemblyInfoInputs.cache
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/obj/Debug/netcoreapp3.1/Servidor.AssemblyInfo.cs
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/obj/Debug/netcoreapp3.1/Servidor.csproj.CoreCompileInputs.cache
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/obj/Debug/netcoreapp3.1/Servidor.dll
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/obj/Debug/netcoreapp3.1/Servidor.pdb
+/home/iesb/Git Hub/JOD061/Aulas/01-ClienteServidor/Servidor/obj/Debug/netcoreapp3.1/Servidor.genruntimeconfig.cache
