@@ -1,0 +1,81 @@
+ - Informações
+iesb@mint:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:48:99:a7 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute enp0s3
+       valid_lft 79256sec preferred_lft 79256sec
+
+Máscara: 10.0.2.15 255.255.255.0 / 127.0.0.1. 255.0.0.0
+
+- Tempo de reposta roteador 
+iesb@mint:~$ ping 10.0.2.15
+PING 10.0.2.15 (10.0.2.15) 56(84) bytes of data.
+64 bytes from 10.0.2.15: icmp_seq=1 ttl=64 time=0.019 ms
+64 bytes from 10.0.2.15: icmp_seq=2 ttl=64 time=0.022 ms
+64 bytes from 10.0.2.15: icmp_seq=3 ttl=64 time=0.020 ms
+64 bytes from 10.0.2.15: icmp_seq=4 ttl=64 time=0.021 ms
+64 bytes from 10.0.2.15: icmp_seq=5 ttl=64 time=0.023 ms
+
+- Conexões TCP 
+iesb@mint:~$ netstat -ntp
+(Nem todos os processos puderam ser identificados, informações sobre processos
+ de outrem não serão mostrados, você deve ser root para vê-los todos.)
+Conexões Internet Ativas (sem os servidores)
+Proto Recv-Q Send-Q Endereço Local          Endereço Remoto         Estado       PID/Program name    
+tcp        0      0 10.0.2.15:40494         172.217.29.99:443       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:39740         172.217.29.66:443       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:37914         216.58.222.66:443       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:36076         172.217.29.100:80       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:41724         172.217.30.10:443       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:35940         13.33.121.82:443        ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:55720         172.217.29.99:80        ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:55750         172.217.29.99:80        ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:43982         172.217.29.78:443       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:37334         201.30.129.145:80       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:55742         172.217.29.99:80        ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:35666         34.213.90.136:443       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:36834         192.16.58.8:80          ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:43292         172.217.29.100:443      ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:33470         216.58.202.238:80       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:58022         44.237.178.15:443       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:36850         192.16.58.8:80          ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:33460         216.58.202.238:80       TIME_WAIT   -                   
+tcp        0      0 10.0.2.15:47762         13.33.121.86:443        ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:36288         172.217.29.34:443       ESTABELECIDA 6730/firefox        
+tcp        0      0 10.0.2.15:37330         201.30.129.145:80       ESTABELECIDA 6730/firefox   
+
+- Hosts Iesb
+
+iesb@mint:~$ nslookup www.iesb.br
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	www.iesb.br
+Address: 54.174.194.96
+
+
+iesb@mint:~$ nslookup intranet.iesb.br.
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	intranet.iesb.br
+Address: 186.251.61.197
+
+- Rotas Iesb
+
+iesb@mint:~$ traceroute www.iesb.br
+traceroute to www.iesb.br (54.174.194.96), 30 hops max, 60 byte packets
+ 1  _gateway (10.0.2.2)  0.190 ms  0.171 ms  0.162 ms
+ 
+ iesb@mint:~$ traceroute intranet.iesb.br.
+traceroute to intranet.iesb.br. (186.251.61.197), 30 hops max, 60 byte packets
+ 1  _gateway (10.0.2.2)  0.312 ms  0.297 ms  0.287 ms
+
